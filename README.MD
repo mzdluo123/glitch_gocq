@@ -1,6 +1,8 @@
-#glitch-gocq
+# glitch-gocq
 
 在glitch平台上运行go-cqhttp，附带keeplive支持
+
+Glitch平台注册地址 https://glitch.com/
 
 # 使用步骤
 
