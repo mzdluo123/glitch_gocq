@@ -9,6 +9,9 @@ from pathlib import Path
 
 import requests
 
+HEADERS = {
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.67"}
+
 
 def get_down_url():
     rsp = requests.get("https://api.github.com/repos/Mrs4s/go-cqhttp/releases/latest")
@@ -22,8 +25,7 @@ def get_down_url():
 def check_runnable():
     if not Path("./.data", "go-cqhttp").exists():
         down_url = get_down_url()
-        content = requests.get(down_url, headers={
-            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.67"})
+        content = requests.get(down_url, headers=HEADERS)
         with open(Path(".data", "download.tar.gz"), "wb")as file:
             file.write(content.content)
         os.system("cd ./.data/ && tar -zxvf ./download.tar.gz")
@@ -33,7 +35,8 @@ def check_runnable():
 
 def run_gocq():
     while True:
-        process = subprocess.Popen("cd ./.data && ./go-cqhttp faststart", shell=True, stdin=sys.stdin, stdout=sys.stdout,
+        process = subprocess.Popen("cd ./.data && ./go-cqhttp faststart", shell=True, stdin=sys.stdin,
+                                   stdout=sys.stdout,
                                    stderr=sys.stderr)
         process.wait()
         time.sleep(10)
@@ -42,7 +45,7 @@ def run_gocq():
 def keep_live(url: str):
     while True:
         try:
-            requests.get(url)
+            requests.get(url, headers=HEADERS)
         except Exception as e:
             logging.exception(e)
         time.sleep(60)

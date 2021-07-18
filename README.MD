@@ -46,3 +46,14 @@ Glitch平台注册地址 https://glitch.com/
 curl --upload-file ./.data/qrcode.png https://transfer.sh/qrcode.png
 ```
 你会得到一个链接，把链接复制到浏览器里打开，用你要登陆那个账户扫描下面的二维码并授权即可
+
+## 手动上传项目到Glitch
+
+打开终端，输入下面的命令
+
+```shell
+git config receive.denyCurrentBranch updateInstead
+```
+即可使用导入菜单内的Git仓库地址上传你的代码
+
+更多操作请看我的博客  https://rainchan.win/2021/01/26/%E5%9C%A8Glitch%E4%B8%8A%E9%83%A8%E7%BD%B2%E4%BD%A0%E7%9A%84Web%E5%BA%94%E7%94%A8/
