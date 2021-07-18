@@ -35,6 +35,7 @@ def run_gocq():
         process = subprocess.Popen("cd ./.data && ./go-cqhttp", shell=True, stdin=sys.stdin, stdout=sys.stdout,
                                    stderr=sys.stderr)
         process.wait()
+        time.sleep(10)
 
 
 def keep_live(url: str):
