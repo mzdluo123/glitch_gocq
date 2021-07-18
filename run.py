@@ -25,7 +25,7 @@ def check_runnable():
             "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.67"})
         with open(Path(".data", "download.tar.gz"), "wb")as file:
             file.write(content.content)
-        os.system("tar -zxvf download.tar.gz")
+        os.system("cd ./.data/ && tar -zxvf ./download.tar.gz")
 
     os.chmod("./.data/go-cqhttp", 755)
 
