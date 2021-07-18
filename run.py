@@ -47,10 +47,20 @@ def keep_live(url: str):
         time.sleep(60)
 
 
+def mv_config():
+    file = Path("config.yml")
+    if file.exists():
+        old_file = Path("./.data/config.yml")
+        if old_file.exists():
+            os.remove(old_file)
+        file.rename("./.data/config.yml")
+
+
 if __name__ == '__main__':
     if not Path(".data").exists():
         os.mkdir(".data")
     check_runnable()
+    mv_config()
     gocq_thread = threading.Thread(target=run_gocq)
     gocq_thread.isDaemon()
     gocq_thread.start()
