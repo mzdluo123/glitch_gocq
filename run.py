@@ -47,20 +47,22 @@ def keep_live(url: str):
         time.sleep(60)
 
 
-def mv_config():
-    file = Path("config.yml")
+def mv_config(file_name):
+    file = Path(file_name)
     if file.exists():
-        old_file = Path("./.data/config.yml")
+        old_file = Path(f"./.data/{file_name}")
         if old_file.exists():
             os.remove(old_file)
-        file.rename("./.data/config.yml")
+        file.rename(f"./.data/{file_name}")
 
 
 if __name__ == '__main__':
     if not Path(".data").exists():
         os.mkdir(".data")
     check_runnable()
-    mv_config()
+    mv_config("config.yml")
+    mv_config("devices.json")
+    os.system("refresh")  # 刷新glitch
     gocq_thread = threading.Thread(target=run_gocq)
     gocq_thread.isDaemon()
     gocq_thread.start()
