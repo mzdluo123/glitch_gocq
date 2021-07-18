@@ -17,8 +17,7 @@ Glitch平台注册地址 https://glitch.com/
    我们强烈建议你设置一个api_token防止恶意访问
 
 3. 导入项目到glitch
-    在Glitch中创建一个新的项目，项目类型必须要选择`glitch-hello-node`，在左下角的tools里面找到导入，选择使用GitHub导入并输入本项目的名字`mzdluo123
-/glitch_gocq`，即可导入
+    在Glitch中创建一个新的项目，项目类型必须要选择`glitch-hello-node`，在左下角的tools里面找到导入，选择使用GitHub导入并输入本项目的名字 `mzdluo123/glitch_gocq`，即可导入
    
 4. 传递配置文件
 
